@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <GridLayout
+        android:id="@+id/tic_tac_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/draw_background"
+        android:columnCount="3"
+        android:rowCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:background="@drawable/draw_background"
+
+            />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="0"
+            android:layout_column="2"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="1"
+            android:layout_column="0"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="1"
+            android:layout_column="1"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="1"
+            android:layout_column="2"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="2"
+            android:layout_column="0"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="2"
+            android:layout_column="1"
+
+            android:background="@drawable/draw_background" />
+
+        <ImageView
+            style="@style/cell_style"
+            android:layout_row="2"
+            android:layout_column="2"
+
+            android:background="@drawable/draw_background" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/cross"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cross" />
+        <TextView
+            android:id="@+id/cross_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:text="0"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle" />
+        <TextView
+            android:id="@+id/circle_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:text="0"
+             />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/winner_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:padding="18dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/winner_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:text="Ничья"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+        <Button
+            android:id="@+id/again_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Заново"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Выход"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
