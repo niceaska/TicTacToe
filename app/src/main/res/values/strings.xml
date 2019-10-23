@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="zero">Нолики</string>
+    <string name="cross">Крестики</string>
+    <string name="no_winner">Ничья</string>
+    <string name="zero_count">0</string>
+    <string name="run_again">Заново</string>
+    <string name="exit">Выход</string>
 </resources>

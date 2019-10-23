@@ -167,6 +167,10 @@ public class TicTacToeField implements Parcelable {
         }
     }
 
+    public int[][] getData() {
+        return mData;
+    }
+
     enum Figure {
         NONE,
         CROSS,

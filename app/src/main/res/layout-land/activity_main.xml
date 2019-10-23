@@ -10,10 +10,9 @@
         android:id="@+id/tic_tac_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
         android:columnCount="3"
         android:rowCount="3"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -84,14 +83,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
         android:drawableTop="@drawable/cross"
         android:text="@string/zero_count"
         android:textAlignment="center"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tic_tac_field"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/circle"
@@ -99,14 +99,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginRight="32dp"
-        android:orientation="vertical"
         android:drawableTop="@drawable/circle"
+        android:orientation="vertical"
         android:text="@string/zero_count"
         android:textAlignment="center"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field" />
+        app:layout_constraintStart_toEndOf="@+id/tic_tac_field"
+        app:layout_constraintTop_toBottomOf="@+id/cross" />
 
 
     <LinearLayout
@@ -114,10 +115,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:background="@drawable/dialog_derawable"
         android:orientation="vertical"
         android:padding="18dp"
         android:visibility="gone"
-        android:background="@drawable/dialog_derawable"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
@@ -136,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_drawable"
             android:text="@string/run_again"
             android:textColor="#fff" />
 
@@ -146,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_drawable"
             android:text="@string/exit"
             android:textColor="#fff" />
 

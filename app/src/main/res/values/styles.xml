@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,9 +9,11 @@
     </style>
 
     <style name="cell_style">
-        <item name="android:layout_width">128dp</item>
-        <item name="android:layout_height">128dp</item>
-        <item name="android:padding">32dp</item>
+
+        <item name="android:minWidth">128dp</item>
+        <item name="android:minHeight">128dp</item>
+        <item name="android:padding">18dp</item>
+
     </style>
 
 </resources>
