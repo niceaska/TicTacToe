@@ -16,6 +16,7 @@ public class TicTacToeGame implements Parcelable {
             return new TicTacToeGame[size];
         }
     };
+
     private boolean gamer;
     private boolean isGameRun;
     private int winner = TicTacToeField.Figure.NONE.ordinal();

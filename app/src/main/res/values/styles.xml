@@ -13,7 +13,7 @@
         <item name="android:minWidth">128dp</item>
         <item name="android:minHeight">128dp</item>
         <item name="android:padding">18dp</item>
-
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
 </resources>

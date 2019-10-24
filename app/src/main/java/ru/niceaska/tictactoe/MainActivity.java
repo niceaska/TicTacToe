@@ -3,6 +3,7 @@ package ru.niceaska.tictactoe;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -19,17 +20,19 @@ import static ru.niceaska.tictactoe.TicTacToeField.Figure.NONE;
 public class MainActivity extends Activity {
 
     private GridLayout gridLayout;
-    private TicTacToeField ticTacToeField;
-    final static String PARCEL_FIELD = "TicTacToe Field";
     private LinearLayout winnerDialog;
     private TextView winnerCaption;
     private Button againButton;
     private Button exitButton;
     private TextView circleCaption;
     private TextView crossCaption;
-    final static String PARCEL_GAME = "TicTacToe Game";
-    final static int FIELD_SIZE = 3;
+
+    private TicTacToeField ticTacToeField;
     private TicTacToeGame ticTacToeGame;
+
+    final static String PARCEL_FIELD = "TicTacToe Field";
+    final static String PARCEL_GAME = "TicTacToe Game";
+    final static int FIELD_SIZE = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,23 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         init();
+        initGridLayout();
         setGridListeners();
         initButtonListeners();
+    }
+
+    private void initGridLayout() {
+        gridLayout.setColumnCount(FIELD_SIZE);
+        gridLayout.setRowCount(FIELD_SIZE);
+        int contentWidth = getResources().getDisplayMetrics().widthPixels;
+        int contentHeight = getResources().getDisplayMetrics().heightPixels;
+        int min = Math.min(contentHeight, contentWidth);
+        int size = min / FIELD_SIZE;
+        for (int i = 0; i < FIELD_SIZE * FIELD_SIZE; i++) {
+            LayoutInflater layoutInflater = LayoutInflater.from(this);
+            View v = layoutInflater.inflate(R.layout.imageview_layout, gridLayout, false);
+            gridLayout.addView(v, size, size);
+        }
     }
 
     private void initButtonListeners() {
@@ -55,7 +73,7 @@ public class MainActivity extends Activity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDestroy();
+                finish();
             }
         });
     }
@@ -78,7 +96,7 @@ public class MainActivity extends Activity {
     }
 
     private void clearField() {
-        ticTacToeField = new TicTacToeField(3);
+        ticTacToeField = new TicTacToeField(FIELD_SIZE);
         for (int i = 0; i < gridLayout.getChildCount(); i++) {
             View v = gridLayout.getChildAt(i);
             ((ImageView) v).setImageDrawable(null);
@@ -86,21 +104,15 @@ public class MainActivity extends Activity {
     }
 
     private void setGridListeners() {
-        int contentWidth = getResources().getDisplayMetrics().widthPixels;
-        int contentHeight = getResources().getDisplayMetrics().heightPixels;
-        int min = Math.min(contentHeight, contentWidth);
-        int size = min / FIELD_SIZE;
         for (int i = 0; i < gridLayout.getChildCount(); i++) {
             View v = gridLayout.getChildAt(i);
             v.setTag(new Point(i % FIELD_SIZE, i / FIELD_SIZE));
-            v.setMinimumWidth(size);
-            v.setMinimumHeight(size);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (ticTacToeGame.isGameRun()) {
                         Point point = (Point) v.getTag();
-                        if (ticTacToeField.getFigure(point.x, point.y) == NONE) {
+                        if (ticTacToeField.isEmptyCell(point.x, point.y)) {
                             ((ImageView) v).setImageDrawable(getDrawable(
                                     ticTacToeGame.isGamer() ? R.drawable.circle : R.drawable.cross)
                             );
