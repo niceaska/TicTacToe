@@ -9,11 +9,75 @@
     </style>
 
     <style name="cell_style">
-
-        <item name="android:minWidth">128dp</item>
-        <item name="android:minHeight">128dp</item>
-        <item name="android:padding">18dp</item>
+        <item name="android:padding">@dimen/default_padding</item>
         <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="gridlayout_style">
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:animateLayoutChanges">true</item>
+    </style>
+
+    <style name="cross_style">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:drawableTop">@drawable/cross</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="circle_style">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginRight">32dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:drawableTop">@drawable/circle</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="dialog_style">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:background">@drawable/dialog_derawable</item>
+    </style>
+
+    <style name="again_button_style">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/button_drawable</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="exit_button_style">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/button_drawable</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="gridlayout_land_style">
+        <item name="android:layout_marginLeft">32dp</item>
+        <item name="android:animateLayoutChanges">true</item>
+    </style>
+
+    <style name="cross_land_style">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginRight">32dp</item>
+        <item name="android:drawableTop">@drawable/cross</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="circle_land_style">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginRight">32dp</item>
+        <item name="android:drawableTop">@drawable/circle</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
 </resources>

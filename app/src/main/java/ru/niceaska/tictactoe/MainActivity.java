@@ -1,5 +1,9 @@
 package ru.niceaska.tictactoe;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -27,12 +31,14 @@ public class MainActivity extends Activity {
     private TextView circleCaption;
     private TextView crossCaption;
 
+    private AnimatorSet dialogSShowing;
+    private ObjectAnimator dialogHide;
     private TicTacToeField ticTacToeField;
     private TicTacToeGame ticTacToeGame;
 
     final static String PARCEL_FIELD = "TicTacToe Field";
     final static String PARCEL_GAME = "TicTacToe Game";
-    final static int FIELD_SIZE = 4;
+    final static int FIELD_SIZE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         init();
+
+        dialogSShowing = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.dialog_showing);
+        dialogHide = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.dialog_hiding);
+        dialogSShowing.setTarget(winnerDialog);
+        dialogHide.setTarget(winnerDialog);
         initGridLayout();
         setGridListeners();
         initButtonListeners();
@@ -66,7 +77,28 @@ public class MainActivity extends Activity {
                 setPoints();
                 ticTacToeGame.setGameRun(true);
                 clearField();
-                winnerDialog.setVisibility(View.GONE);
+                dialogHide.start();
+                dialogHide.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        winnerDialog.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
             }
         });
 
@@ -146,6 +178,7 @@ public class MainActivity extends Activity {
             }
             ticTacToeGame.setGameRun(false);
             ticTacToeGame.setWinner(winner.ordinal());
+            dialogSShowing.start();
             winnerDialog.setVisibility(View.VISIBLE);
         }
     }

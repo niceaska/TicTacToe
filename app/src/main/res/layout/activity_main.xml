@@ -10,10 +10,10 @@
         android:id="@+id/tic_tac_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/gridlayout_style">
 
     </GridLayout>
 
@@ -22,42 +22,29 @@
         android:id="@+id/cross"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="32dp"
-        android:drawableTop="@drawable/cross"
         android:text="@string/zero_count"
-        android:textAlignment="center"
-        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field" />
+        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field"
+        style="@style/cross_style" />
 
     <TextView
         android:id="@+id/circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="32dp"
-        android:orientation="vertical"
-        android:drawableTop="@drawable/circle"
         android:text="@string/zero_count"
-        android:textAlignment="center"
-        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field" />
+        app:layout_constraintTop_toBottomOf="@+id/tic_tac_field"
+        style="@style/circle_style" />
 
 
     <LinearLayout
         android:id="@+id/winner_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:padding="18dp"
-        android:visibility="gone"
-        android:background="@drawable/dialog_derawable"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/dialog_style">
 
         <TextView
             android:id="@+id/winner_caption"
@@ -73,21 +60,15 @@
             android:id="@+id/again_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:background="@drawable/button_drawable"
             android:text="@string/run_again"
-            android:textColor="#fff" />
+            style="@style/again_button_style" />
 
         <Button
             android:id="@+id/exit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:background="@drawable/button_drawable"
             android:text="@string/exit"
-            android:textColor="#fff" />
+            style="@style/exit_button_style" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
